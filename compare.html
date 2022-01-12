@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{title}}</title></head>
+<link rel='stylesheet' href='static/compare.css' type='text/css' />
+<body>
+    <p><a href="/">Go back to Quiz Pokemon</a></p>
+    <h1>Lets compare your pokemon now</h1>
+    <form action="/comparepoke" method="get">
+            <label for="pokemon1">What's the name of the first pokemon you want to compare?:</label>
+            <input type="text" id="pokemon1" name="pokemon1" /><br />
+            <label for="pokemon2">What's the name of the second pokemon you want to compare?:</label>
+            <input type="text" id="pokemon2" name="pokemon2" /><br />
+
+            <input type="submit" value="Compare Pokemon" name="submitbtn"/>
+            <p id="hint">Tip: As an example, try comparing 'charmander' and 'bulbasaur'</p>
+
+        {% if error_message %}
+            <p>{{error_message}}</p>
+        {% endif %}
+
+        <div id="first_pokemon">
+            <img src="{{compare1_img_link}}"/>
+            {% if compare1 %}
+                <p>You can find {{compare1}} at these locations:</p>
+                {% for each in location1 %}
+                    <div>{{each}}</div>
+                {% endfor %}
+                <div>
+                    <p>The growth rate for {{compare1}} is {{growth_rate1}}</p>
+                    <p>{{is_legend1}}</p>
+                </div>
+            {% endif %}
+        </div>
+        <div id="sec_pokemon">
+            <img src="{{compare2_img_link}}"/>
+            {% if compare2 %}
+                <p>You can find {{compare2}} at these locations:</p>
+                {% for each in location2 %}
+                    <div>{{each}}</div>
+                {% endfor %}
+                <div>
+                    <p>The growth rate for {{compare2}} is {{growth_rate2}}</p>
+                    <p>{{is_legend2}}</p>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+</body>
+</html>

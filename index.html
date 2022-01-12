@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><title>{{title}}</title></head>
+<link rel='stylesheet' href='static/index.css' type='text/css' />
+<body>
+    <div><a href='/comparepoke'>Compare 2 pokemon</a></div>
+    <h1>Hello and welcome to the Word of Pokemon!</h1>
+    <h2>So you think you're a pokemon expert? Don't we all? But let's put your knowledge to the test...</h2>
+    <section id="intro">
+        <h3>You'll be presented with a series of pokemon with corresponding questions. Let's see if you get them right</h3>
+    </section>
+
+    <img src ="{{random_pokemon}}">
+    <div id="diff_pokemon"><p><a href="/">Maybe you wanted a different pokemon?</a></p></div>
+    <!--{% for x in pokemon_guess %}
+        <a href="/newpage"><img src="{{x}}" alt="the_image" /></a>
+    {% endfor %}-->
+    <form action="/gresponse" method="get">
+        <label for="pokemonname">What's the name of this pokemon?:</label>
+        <input type="text" id="pokemonname" name="pokemonname" /><br />
+        <!--<input type="submit" value="Check Answer" name="submitbtn"/></form>-->
+
+
+        <label for="pokemontype">What's the type of this pokemon?:</label>
+        <input type="text" id="pokemontype" name="pokemontype" /><br />
+        <!--<p>{{check_type}}</p>-->
+
+        <label for="pokemoneffective">What types are super effective against this pokemon:</label>
+        <input type="text" id="pokemoneffective" name="pokemoneffective" /><br />
+        <!--<p>{{check_effectiveness}}</p>-->
+
+        <input type="submit" value="Check Answers" name="submitbtn"/>
+        <p>{{check_name}}</p>
+
+        {% if no_submit %}
+            <p>{{no_submit}}</p>
+        {% endif %}
+
+</body>
+</html>

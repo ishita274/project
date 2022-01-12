@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    text-align: center
+}
+
+h1 {
+    color: white
+    text-align: center
+}
+
+#first_pokemon img {
+    width: 300px;
+}
+
+#sec_pokemon img {
+    width: 300px;
+}
+
+#hint {
+    font-size: 10 px;
+    text-align: center;
+}
